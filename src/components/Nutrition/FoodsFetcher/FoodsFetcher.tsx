@@ -19,6 +19,9 @@ export default async function FoodsFetcher({ mealSlug, dietSlug, query }: Props)
   const meal = await getOne<IMeal>(`${process.env.API_BASE_URL}meals/${mealSlug}`, { next: { tags: ["meals"] } })
   let foodsAdded: string[] = []
 
+  //@ts-ignore
+  if (meal.message && meal.statusCode) notFound()
+
   if (meal && meal.foods) foodsAdded = meal.foods.map(food => food.slug)
 
   return (

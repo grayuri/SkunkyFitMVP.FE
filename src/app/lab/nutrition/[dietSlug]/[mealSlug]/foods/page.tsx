@@ -12,19 +12,6 @@ type Props = {
   searchParams: { [key: string]: string | undefined };
 };
 
-export const dynamicParams = false
-
-export async function generateStaticParams() {
-  const { datas: meals } = await getAll<IMeal>(process.env.API_BASE_URL + "meals/", { 
-    cache: "no-store"
-  })
-
-  return meals.map(meal => ({
-    mealSlug: meal.slug,
-    dietSlug: meal.dietSlug
-  }))
-}
-
 export default function SearchFoodsPage({ params, searchParams }: Props) {
   let query = ""
 

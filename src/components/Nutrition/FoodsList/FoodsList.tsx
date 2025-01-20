@@ -10,6 +10,7 @@ import FoodModalForm from "../FoodModalForm/FoodModalForm";
 import EmptyResponse from "@/components/UI/EmptyResponse/EmptyResponse";
 import Pagination from "@/components/UI/Pagination/Pagination";
 import getListResults from "@/utils/getListResults";
+import { useEffect, useState } from "react";
 
 interface Props {
   foods: IFood[]
@@ -27,6 +28,7 @@ export default function FoodsList({ foods, dietSlug, mealSlug, foodsAdded, pages
   const categorySlug = searchParams.get("category")
   const searchSlug = searchParams.get("search")
   const page = searchParams.get("page")
+  const currentFoodSlug = searchParams.get("name")
 
   let pageLink = `/lab/nutrition/${dietSlug}/${mealSlug}/foods`
 
@@ -51,7 +53,9 @@ export default function FoodsList({ foods, dietSlug, mealSlug, foodsAdded, pages
       onExitComplete={() => router.push(pageLink, { scroll: false })}
     >
       <DialogBackdrop />
-      <FoodModalForm dietSlug={dietSlug} mealSlug={mealSlug} />
+
+      <FoodModalForm dietSlug={dietSlug} mealSlug={mealSlug} foods={foods} />
+
       {
         foods.length > 0
         ? (

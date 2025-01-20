@@ -2,6 +2,7 @@ import { getAll, getOne } from "@/services/FetchServices"
 import ExercisesList from "../ExercisesList/ExercisesList"
 import { IExercise } from "@/types/IExercise"
 import { ITrainingPlan } from "@/types/ITrainingPlan"
+import { notFound } from "next/navigation"
 
 interface Props {
   planSlug: string
@@ -22,6 +23,9 @@ export default async function ExercisesFetcher({ planSlug, query }: Props) {
     }
   })
   let exercisesAdded: string[] = []
+
+  //@ts-ignore
+  if (plan.message && plan.statusCode) notFound()
   
   if (plan && plan.exercises) exercisesAdded = plan.exercises.map(exercise => exercise.slug)
 

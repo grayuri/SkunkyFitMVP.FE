@@ -3,6 +3,7 @@ import { createOne, getOne } from "@/services/FetchServices"
 import MacronutrientsCounter from "../MacronutrientsCounter/MacronutrientsCounter"
 import MealsList from "../MealsList/MealsList"
 import Image from "next/image"
+import { notFound } from "next/navigation"
 
 export default async function DietFetcher({ dietSlug }: { dietSlug: string }) {
   const diet = await getOne<IDiet>(`${process.env.API_BASE_URL}diets/${dietSlug}`, { 
@@ -11,6 +12,10 @@ export default async function DietFetcher({ dietSlug }: { dietSlug: string }) {
       revalidate: 1800
     }
   })
+
+  //@ts-ignore
+  if (diet.message && diet.statusCode) notFound()
+
   const dietStats = await createOne<any>(`${process.env.API_BASE_URL}stats/diet`, { 
     body: JSON.stringify({ dietObjective: diet.dietObjective }),
     next: { tags: ["diets"] } 

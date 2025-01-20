@@ -8,13 +8,15 @@ import { getOne } from "@/services/FetchServices";
 import { useEffect, useState } from "react";
 import { IFood } from "@/types/IFood";
 import getFoodWithRightQuantity from "@/utils/getFoodWithRightQuantity";
+import closeModal from "@/utils/closeModal";
 
 interface Props {
   dietSlug: string
   mealSlug: string
+  foods: IFood[]
 }
 
-export default function FoodModalForm({ dietSlug, mealSlug }: Props) {
+export default function FoodModalForm({ dietSlug, mealSlug, foods }: Props) {
   const [food, setFood] = useState<IFood>()
   const searchParams = useSearchParams()
   const slug = searchParams.get("name")
@@ -30,14 +32,11 @@ export default function FoodModalForm({ dietSlug, mealSlug }: Props) {
   }
 
   useEffect(() => {
-    async function getFood() {
-      if (slug) {
-        const data = await getOne<any>(`${process.env.API_BASE_URL}foods/${slug}`)
-        setFood(data)
-      }
-    }
-    getFood()
+    const currentFood = foods.find(food => food.slug === slug)
 
+    if (!currentFood) closeModal()
+
+    setFood(currentFood)
   },[slug])
 
   return (
