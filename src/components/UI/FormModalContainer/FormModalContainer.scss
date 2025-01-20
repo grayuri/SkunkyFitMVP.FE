@@ -1,0 +1,139 @@
+@import "../../../variables.scss";
+
+.form-modal-container {
+  background-color: $n9;
+  // padding: 24px;
+  max-width: 500px;
+  border-radius: 24px;
+
+  * > outline {
+    outline: 2px solid $green-1;
+  };
+
+  &.nutrition {
+    border: 2px solid $green-1;
+
+    input, select {
+      &:focus {
+        border: 2px solid transparent;
+        outline: 2px solid $green-1;
+      }
+    }
+  }
+
+  &.training {
+    border: 2px solid $dark-blue-1;
+
+    input, select {
+      &:focus {
+        border: 2px solid transparent;
+        outline: 2px solid $dark-blue-1;
+      }
+    }
+  }
+
+  h2 {
+    color: $n1;
+    @include h2();
+  }
+
+  form {
+    // margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    label {
+      color: $n1;
+      @include l1-b();
+    }
+
+    input, textarea {
+      padding: 24px 12px;
+      border: 2px solid $n7;
+      color: $n1;
+
+      @include l2-r();
+
+      &:focus {
+        border: 2px solid transparent;
+        outline: 2px solid $n1;
+      }
+    }
+
+    select {
+      padding: 12px;
+      border: 2px solid $n7;
+      color: $n4;
+      border-radius: 4px;
+      background-color: white;
+
+      @include l2-r();
+
+      &:focus {
+        border: 2px solid transparent;
+        outline: 2px solid $n1;
+      }
+
+      option {
+        color: $n4;
+        @include l2-r();
+      }
+    }
+
+    .file-input-container {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      border: 2px solid $n7;
+      color: $n4;
+      border-radius: 4px;
+      background-color: white;
+      cursor: pointer;
+
+      @include l2-r();
+
+      &#file-input:focus {
+        border: 2px solid transparent;
+        outline: 2px solid $n1;
+      }
+
+      #file-input {
+        display: none;
+        width: 100%;
+
+        ::-webkit-file-upload-button {
+          display: none;
+        }
+      
+        ::file-selector-button {
+          display: none;
+        }
+      }
+
+      .content {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        span {
+          overflow: hidden;
+          display: -webkit-box;
+          line-clamp: 1;
+          -webkit-line-clamp: 1;
+          -webkit-box-orient: vertical; 
+        }
+      }
+    }
+    
+    p {
+      color: $chakra-error;
+      @include l3-r();
+    }
+
+    .buttons {
+      display: flex;
+      gap: 8px;
+    }
+  }
+}

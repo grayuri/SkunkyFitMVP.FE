@@ -1,0 +1,62 @@
+@import '../../../variables.scss';
+
+.plan-details {
+  display: flex;
+  gap: 48px;
+  align-items: center;
+  width: fit-content;
+  padding: 48px;
+  border: 2px solid $orange-1;
+  border-radius: 24px;
+  background-color: $n9;
+  margin: auto;
+  position: relative;
+  z-index: 3;
+  @include umbra12DP();
+
+  @include mediaQuery(400px) {
+    flex-direction: column;
+  }
+
+  .calories-burned {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+
+    .icon {
+      color: $orange-1;
+      @include getFontSize(124px);
+    }
+
+    span {
+      @include h2();
+      color: $orange-1;;
+    }
+  }
+
+  .trainning-informations {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    list-style: none;
+
+    li {
+      display: flex;
+      flex-direction: column;
+
+      h2 {
+        color: $n1;
+        font-weight: 600;
+        @include getFontSize(24px)
+      }
+
+      span {
+        color: $n2;
+        @include l1-r()
+      }
+    }
+  }
+}

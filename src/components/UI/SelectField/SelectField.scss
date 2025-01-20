@@ -1,0 +1,32 @@
+@import "../../../variables.scss";
+
+.select-field {
+  .select-container {
+    position: relative;
+    width: 100%;
+
+    select {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      width: 100%;
+      cursor: pointer;
+    }
+
+    .icon {
+      position: absolute;
+      height: 100%;
+      top: 0;
+      right: 8px;
+      margin: auto 0px;
+      color: $n4;
+      pointer-events: none;
+    }
+  }
+
+  span {
+    @include l3-r();
+  }
+
+  @include fontRaleway();
+}

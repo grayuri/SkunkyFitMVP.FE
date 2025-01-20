@@ -1,0 +1,27 @@
+@import '../../../variables.scss';
+
+@include mediaQuery(400px) {
+  .download-buttons {
+    flex-direction: column;
+  }
+}
+
+.download-buttons {
+  display: flex;
+  gap: 8px;
+
+  button {
+    @include l1-r();
+  }
+}
+
+.meals-list {
+  display: grid;
+  gap: 24px;
+  width: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(920px, auto));
+
+  @include mediaQuery(400px) {
+    grid-template-columns: 1fr
+  }
+}

@@ -1,0 +1,9 @@
+@import '../../../variables.scss';
+
+.diets-list {
+  display: grid;
+  gap: 24px;
+  width: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(280px, auto));
+  align-items: center;
+}

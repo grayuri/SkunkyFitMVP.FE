@@ -1,0 +1,126 @@
+@import "../../../variables.scss";
+
+#action-button {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  border-radius: 12px;
+  transition: background 0.24s ease;
+  cursor: pointer;
+
+  &.l1-r {
+    @include l1-r();
+
+    .icon {
+      @include getFontSize(28px)
+    }
+  }
+  
+  &.l1-b {
+    @include l1-b();
+
+    .icon {
+      @include getFontSize(28px)
+    }
+  }
+
+  &.l2-r {
+    @include l2-r();
+
+    .icon {
+      @include getFontSize(24px)
+    }
+  }
+  
+  &.l2-b {
+    @include l2-b();
+    
+    .icon {
+      @include getFontSize(24px)
+    }
+  }
+
+  &.l3-r {
+    @include l3-r();
+
+    .icon {
+      @include getFontSize(22px)
+    }
+  }
+  
+  &.l3-b {
+    @include l3-r();
+    
+    .icon {
+      @include getFontSize(22px)
+    }
+  }
+
+  &.l4-r {
+    @include l4-r();
+
+    .icon {
+      @include getFontSize(20px)
+    }
+  }
+  
+  &.l4-b {
+    @include l4-r();
+
+    .icon {
+      @include getFontSize(20px)
+    }
+  }
+
+  &.cancel {
+    background-color: white;
+    color: $n5;
+    border: 2px solid $n5;
+
+    &:hover {
+      background-color: $n8;
+    }
+  }
+
+  &.nutrition {
+    &.filled {
+      background-color: $green-1;
+      color: white;
+
+      &:hover {
+        background-color: $green-2;
+      }
+    }
+
+    &.outlined {
+      background-color: white;
+      color: $green-1;
+      border: 2px solid $green-1;
+
+      &:hover {
+        background-color: $n8;
+      }
+    }
+  }
+
+  &.training {
+    &.filled {
+      background-color: $dark-blue-1;
+      color: white;
+
+      &:hover {
+        background-color: $dark-blue-2;
+      }
+    }
+
+    &.outlined {
+      background-color: white;
+      color: $dark-blue-1;
+      border: 2px solid $dark-blue-1;
+
+      &:hover {
+        background-color: $n8;
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+@import '@/app/globals.scss';
+
+.empty-response {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 12px;
+
+  .image {
+    position: relative;
+    width: 364px;
+    height: 260px;
+
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &.nutrition {
+    .highlight {
+      color: $green-1
+    }
+  }
+
+  &.training {
+    .highlight {
+      color: $dark-blue-1
+    }
+  }
+
+  .message {
+    p {
+      @include l1-r();
+      color: $n1;
+      width: fit-content;
+      margin: auto;
+
+      .highlight {
+        @include l1-b();
+      }
+    }
+  }
+}

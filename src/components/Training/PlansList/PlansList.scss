@@ -1,0 +1,9 @@
+@import '../../../variables.scss';
+
+.plans-list {
+  display: grid;
+  gap: 24px;
+  width: 100%;
+  align-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(280px, auto));
+}

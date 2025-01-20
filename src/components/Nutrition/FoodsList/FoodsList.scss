@@ -1,0 +1,21 @@
+@import '../../../variables.scss';
+
+.list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+
+  .results {
+    color: $n5;
+    @include l1-r();
+  }
+
+  .foods-list {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: repeat(auto-fill, minmax(320px, auto));
+    width: 100%;
+    align-items: center;
+  }
+}

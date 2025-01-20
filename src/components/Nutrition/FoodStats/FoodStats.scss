@@ -1,0 +1,48 @@
+@import "../../../variables.scss";
+
+.food-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 12px;
+
+  li {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    color: $n1;
+    @include l1-r();
+
+    .circle {
+      width: 20px;
+      aspect-ratio: 1;
+      background-color: red;
+      border-radius: 50%;
+      @include umbra12DP;
+    }
+  }
+
+  :nth-child(1) {
+    .circle {
+      background-color: $dark-blue-1;
+    }
+  }
+  
+  :nth-child(2) {
+    .circle {
+      background-color: $orange-1;
+    }
+  }
+
+  :nth-child(3) {
+    .circle {
+      background-color: $yellow-1;
+    }
+  }
+
+  :nth-child(4) {
+    .circle {
+      background-color: $blue-1;
+    }
+  }
+}

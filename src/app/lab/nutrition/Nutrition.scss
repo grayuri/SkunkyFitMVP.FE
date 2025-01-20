@@ -1,0 +1,30 @@
+@import "../../../variables.scss";
+
+.nutrition-page {
+  .banner {
+    width: 100%;
+    height: 256px;
+    position: relative;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+    }
+  }
+
+  .content {
+    padding: 48px 96px;
+
+    @include mediaQuery(400px) {
+      padding: 24px;
+    }
+
+    h2 {
+      @include h2();
+      color: $n1;
+      margin-bottom: 24px;
+    }
+  }
+}

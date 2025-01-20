@@ -1,0 +1,101 @@
+@import '@/app/globals.scss';
+
+.labs-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  height: 108px;
+  padding: 24px 96px;
+
+  a {
+    color: $n3;
+  }
+  
+  @include umbra24DP();
+
+  @include mediaQuery(400px) {
+    padding: 24px;
+
+    .navlist {
+      display: none;
+    }
+
+    .profile-link-container {
+      display: none;
+    }
+
+    .burguer-menu {
+      display: block;
+    }
+  }
+
+  .burguer-button {
+    display: none;
+  }
+  
+  &.nutrition {
+    background-color: $green-1;
+
+    .actual-route {
+      a {
+        color: $n9;
+      }
+    }
+
+    a {
+      color: $n3;
+    }
+  }
+
+  &.training {
+    background-color: $dark-blue-1;
+
+    .actual-route {
+      a {
+        color: $n9;
+      }
+    }
+
+    a {
+      color: $n7;
+    }
+  }
+
+  .logo {
+    a {
+      @include h3();
+      color: $n9;
+      text-decoration: none;
+    }
+  }
+
+  .navlist {
+    display: flex;
+    gap: 48px;
+
+    list-style: none;
+    @include l1-r();
+
+    li {
+      a {
+        text-decoration: none;
+        color: #ffffff28;
+      }
+    }
+  }
+
+  .profile-link {
+    display: grid;
+    place-items: center;
+    width: 60px;
+    height: 60px;
+    background-color: $n9;
+    border-radius: 50%;
+
+    .icon {
+      color: $n4;
+    }
+  }
+}

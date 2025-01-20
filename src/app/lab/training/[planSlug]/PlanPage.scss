@@ -1,0 +1,67 @@
+@import '../../../../variables.scss';
+
+.plan-page {
+  .top-section {
+    position: relative;
+    padding: 48px;
+
+    @include mediaQuery(400px) {
+      padding: 24px;
+    }
+
+    .banner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: lightgray;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      object-fit: cover;
+
+      ~.dark-layer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        opacity: 0.56;
+        z-index: 2;
+      }
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 48px 96px;
+
+    @include mediaQuery(400px) {
+      padding: 24px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      // gap: 24px;
+
+      .button {
+        @include l1-r();
+        @include umbra16DP();
+
+        .icon {
+          @include getFontSize(32px);
+        }
+      }
+    }
+
+    h2 {
+      color: $n1;
+      @include h2();
+      text-align: center;
+    }
+  }
+}

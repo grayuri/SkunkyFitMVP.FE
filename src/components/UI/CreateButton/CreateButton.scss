@@ -1,0 +1,32 @@
+@import '../../../variables.scss';
+
+.create-button {
+  width: fit-content;
+  padding: 12px;
+  border-radius: 50%;
+  background-color: gray;
+  color: $n9;
+  cursor: pointer;
+  transition: ease 0.24s;
+  margin: auto;
+
+  &.nutrition {
+    background-color: $green-1;
+    border: 2px solid;
+    border-color: $green-3;
+
+    &:hover {
+      background-color: $green-2;
+    }
+  }
+
+  &.training {
+    background-color: $dark-blue-1;
+    border: 2px solid;
+    border-color: $dark-blue-3;
+
+    &:hover {
+      background-color: $dark-blue-2;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+@import "../../../variables.scss";
+
+.form-field {
+  label {
+    color: $n1 !important;
+    font-size: 32px !important;
+  }
+
+  input {
+    border: 2px solid $n4;
+    outline: 2px solid transparent;
+
+    &:focus {
+      border: 2px solid transparent;
+      outline: 2px solid black;
+    }
+  }
+  
+  span {
+    @include l3-r();
+  }
+
+  div > button > svg {
+    position: absolute !important;
+    right: 140 !important;
+  }
+
+  @include fontRaleway();
+}

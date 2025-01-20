@@ -1,0 +1,51 @@
+@import '../../../variables.scss';
+
+.exercise {
+  border: 2px solid $dark-blue-1;
+  border-radius: 32px;
+  overflow: hidden;
+
+  .image-container {
+    position: relative;
+    // width: 100%;
+    height: 270px;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .content {
+    display: flex;
+    gap: 24px;
+    align-items: flex-end;
+    padding: 24px;
+    
+    .details {
+      width: 100%;
+
+      h4 {
+        color: $n1;
+        margin-bottom: 12px;
+        max-width: 200px;
+        text-transform: capitalize;
+        @include h4();
+      }
+
+      .muscle-targeted {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        
+        color: $blue-1;
+        @include l2-r();
+
+        .icon {
+          @include getFontSize(24px);
+        }
+      }
+    }
+  }
+}

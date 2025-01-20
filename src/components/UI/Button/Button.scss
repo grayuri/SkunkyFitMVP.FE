@@ -1,0 +1,16 @@
+@import "@/app/globals.scss";
+
+.button-container {
+  padding: 24px 48px;
+  border-radius: 12px;
+  border: none;
+  background-color: crimson;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  @include umbra12DP();
+
+  &:hover {
+    background-color: rgb(233, 39, 78);
+  }
+}

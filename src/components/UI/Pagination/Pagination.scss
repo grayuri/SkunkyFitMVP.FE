@@ -1,0 +1,70 @@
+@import '../../../variables.scss';
+
+.paginator {
+  display: flex;
+  gap: 8px;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    padding: 8px;
+    width: 48px;
+    height: 48px;
+    aspect-ratio: 1;
+    color: $n3;
+    transition: 0.24s ease;
+    cursor: pointer;
+    @include l1-r();
+    
+    &:hover {
+      color: $n9;
+      @include umbra12DP();
+    }
+  }
+
+  .active {
+    @include l1-b();
+  }
+
+  .pointers {
+    @include l1-b();
+  }
+
+  &.nutrition {
+    a {
+      &:hover {
+        color: $n9;
+        background: $green-1;
+      }
+    }
+
+    .active {
+      border: 1px solid $green-1;
+      color: $green-1;
+    }
+
+    .pointers {
+      color: $green-1;
+    }
+  }
+
+  &.training {
+    a {
+      &:hover {
+        color: $n9;
+        background: $dark-blue-1;
+      }
+    }
+
+    .active {
+      border: 1px solid $dark-blue-1;
+      color: $dark-blue-1;
+    }
+
+    .pointers {
+      color: $dark-blue-1;
+    }
+  }
+}

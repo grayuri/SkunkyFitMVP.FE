@@ -1,0 +1,18 @@
+@import '../../../variables.scss';
+
+// .buttons {
+//   display: flex;
+//   justify-content: center;
+//   margin-bottom: 24px;
+
+//   .button {
+//     @include l1-r();
+//   }
+// }
+
+.plan-exercises-list {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 12px;
+}

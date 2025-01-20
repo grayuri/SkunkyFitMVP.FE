@@ -1,0 +1,30 @@
+@import '../variables.scss';
+
+*, *::before, *::after {
+  // margin: 0;
+  // padding: 0;
+  box-sizing: border-box;
+  @include fontRaleway();
+}
+
+::-moz-selection {
+  color: white;
+  background: $orange-1;
+}
+
+::selection {
+  color: white;
+  background: $orange-1;
+}
+
+body, html {
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+  @include getFontSize(16px)
+}
+
+a {
+  color: $n1;
+  text-decoration: none;
+}
