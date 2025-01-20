@@ -2,7 +2,7 @@
 
 import { revalidateTag } from "next/cache"
 
-const url = process.env.API_BASE_URL + "v1/diets/"
+const url = process.env.API_BASE_URL + "diets/"
 
 export async function updateDiet(slug: string, formData: FormData) {
   await fetch(url + slug, {
