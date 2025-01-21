@@ -1,7 +1,7 @@
 "use client"
 
 import { updateOne } from "@/services/FetchServices"
-import { Box } from "@chakra-ui/react"
+import { Box, Spinner } from "@chakra-ui/react"
 import { Button, Fieldset, Stack } from "@chakra-ui/react"
 import { Field } from "@/components/UI/field"
 import {
@@ -25,7 +25,7 @@ export default function ProfileForm({ user }: { user: any }) {
   const {
     register,
     handleSubmit,
-    formState: { errors }
+    formState: { errors, isSubmitting }
   } = useForm<Inputs>()
 
   async function onSubmit(data: Inputs) {
@@ -129,8 +129,14 @@ export default function ProfileForm({ user }: { user: any }) {
               bg="#83B120"
               alignSelf="flex-start"
               _hover={{ bg: "#B5E056" }}
+              disabled={isSubmitting}
             >
-              Submit
+              {
+                isSubmitting && (
+                  <Spinner color="white" />
+                )
+              }
+              <span>{isSubmitting ? "Loading..." : "Submit"}</span>
             </Button>
           </form>
         </Fieldset.Content>

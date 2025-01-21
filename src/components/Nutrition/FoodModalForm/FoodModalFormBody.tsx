@@ -31,7 +31,7 @@ export default function FoodModalFormBody({ food, dietSlug, mealSlug, updateFood
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<foodSchema>({ resolver: zodResolver(foodSchema) })
   
   async function onSubmit(data: foodSchema) {
@@ -76,7 +76,7 @@ export default function FoodModalFormBody({ food, dietSlug, mealSlug, updateFood
       />
       <div className="buttons">
         <CancelButton />
-        <ModalActionButton isUpdate={false} />
+        <ModalActionButton isUpdate={false} isSubmitting={isSubmitting} />
       </div>
     </form>
   )

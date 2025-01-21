@@ -34,7 +34,7 @@ export default function MealModalFormBody({ mealSlug, dietSlug }: Props) {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<MealFormData>({ resolver: zodResolver(mealSchema) })
 
   const [_, startTransition] = useTransition()
@@ -74,7 +74,7 @@ export default function MealModalFormBody({ mealSlug, dietSlug }: Props) {
       />
       <div className="buttons">
         <CancelButton />
-        <ModalActionButton isUpdate={isUpdateForm} />
+        <ModalActionButton isUpdate={isUpdateForm} isSubmitting={isSubmitting} />
       </div>
     </form>
   )

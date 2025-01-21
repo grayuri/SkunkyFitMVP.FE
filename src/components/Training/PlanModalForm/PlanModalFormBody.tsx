@@ -32,7 +32,7 @@ export default function PlanModalFormBody({ trainingPlanSlug }: Props) {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<TrainingPlanFormData>({ resolver: zodResolver(trainingPlanSchema) })
   
   const isUpdateForm = trainingPlanSlug ? true : false
@@ -68,7 +68,7 @@ export default function PlanModalFormBody({ trainingPlanSlug }: Props) {
       />
       <div className="buttons">
         <CancelButton />
-        <ModalActionButton isUpdate={isUpdateForm} />
+        <ModalActionButton isUpdate={isUpdateForm} isSubmitting={isSubmitting} />
       </div>
     </form>
   )

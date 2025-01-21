@@ -39,7 +39,7 @@ export default function DietModalFormBody({ dietSlug }: Props) {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<DietFormData>({ resolver: zodResolver(dietSchema) })
 
   const isUpdateForm = dietSlug ? true : false
@@ -88,7 +88,7 @@ export default function DietModalFormBody({ dietSlug }: Props) {
       />
       <div className="buttons">
         <CancelButton />
-        <ModalActionButton isUpdate={isUpdateForm} />
+        <ModalActionButton isUpdate={isUpdateForm} isSubmitting={isSubmitting} />
       </div>
     </form>
   )

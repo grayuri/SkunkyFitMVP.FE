@@ -1,6 +1,5 @@
 "use client"
 
-import { useFormStatus } from "react-dom";
 import { usePathname } from "next/navigation";
 import { DialogActionTrigger } from "@/components/UI/dialog";
 import ActionButton from "@/components/UI/ActionButton/ActionButton";
@@ -22,14 +21,13 @@ export function CancelButton() {
   )
 }
 
-export function ModalActionButton({ isUpdate }: { isUpdate: boolean }) {
+export function ModalActionButton({ isUpdate, isSubmitting }: { isUpdate: boolean, isSubmitting: boolean }) {
   const pathname = usePathname()
   const route = pathname.split("/")[2]
-  const { pending } = useFormStatus()
 
   if (!isUpdate) return (
     <ActionButton 
-      disabled={pending}
+      disabled={isSubmitting}
       route={route}
       padding="16px"
       borderRadius="8px"
@@ -42,7 +40,7 @@ export function ModalActionButton({ isUpdate }: { isUpdate: boolean }) {
 
   if (isUpdate) return (
     <ActionButton 
-      disabled={pending}
+      disabled={isSubmitting}
       route={route}
       padding="16px"
       borderRadius="8px"

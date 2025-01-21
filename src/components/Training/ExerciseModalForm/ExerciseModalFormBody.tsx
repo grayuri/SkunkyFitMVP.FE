@@ -36,7 +36,7 @@ export default function ExerciseModalFormBody({ slug, planSlug }: Props) {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<PlanExerciseFormData>({ resolver: zodResolver(planExerciseSchema) })
   
   async function onSubmit(data: PlanExerciseFormData) {
@@ -69,7 +69,7 @@ export default function ExerciseModalFormBody({ slug, planSlug }: Props) {
       />
       <div className="buttons">
         <CancelButton />
-        <ModalActionButton isUpdate={false} />
+        <ModalActionButton isUpdate={false} isSubmitting={isSubmitting} />
       </div>
     </form>
   )

@@ -20,6 +20,7 @@ export default function ActionButton({
 
   if (fontVariant) className += `${fontVariant} `
   if (buttonVariant !== "cancel") className += `${buttonVariant} `
+  if (disabled) className += "disabled"
 
   if (buttonVariant === "cancel") return (
     <div
