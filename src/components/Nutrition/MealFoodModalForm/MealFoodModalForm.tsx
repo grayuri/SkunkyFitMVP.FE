@@ -7,9 +7,9 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import getFoodWithRightQuantity from "@/utils/getFoodWithRightQuantity";
 import { IMealFood } from "@/types/IMealFood";
-import { getOne } from "@/services/FetchServices";
+import closeModal from "@/utils/closeModal";
 
-export default function MealFoodModalForm() {
+export default function MealFoodModalForm({ foods }: { foods: IMealFood[] }) {
   const [food, setFood] = useState<IMealFood>()
   const searchParams = useSearchParams()
   const mealSlug = searchParams.get("meal")
@@ -27,10 +27,11 @@ export default function MealFoodModalForm() {
 
   useEffect(() => {
     async function getFood() {
-      if (mealFoodSlug && mealSlug) {
-        const data = await getOne<IMealFood>(`${process.env.API_BASE_URL}meal-foods/${mealFoodSlug}?mealSlug=${mealSlug}`)
-        setFood(data)
-      }
+      const currentFood = foods.find(food => food.slug === mealFoodSlug)
+
+      if (!currentFood) closeModal()
+
+      setFood(currentFood)
     }
     getFood()
 

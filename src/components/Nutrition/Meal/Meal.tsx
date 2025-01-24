@@ -92,7 +92,7 @@ export default function Meal(props: Props) {
             onExitComplete={() => router.push(dietPage, { scroll: false })}
           >
             <DialogBackdrop />
-            <MealFoodModalForm />
+            <MealFoodModalForm foods={props.foods} />
             <MealFoodsList mealFoods={props.foods} mealSlug={props.slug} dietSlug={props.dietSlug} />
           </DialogRoot>
         </Collapsible.Content>
