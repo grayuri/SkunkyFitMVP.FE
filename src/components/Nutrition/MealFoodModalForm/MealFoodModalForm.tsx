@@ -26,14 +26,8 @@ export default function MealFoodModalForm({ foods }: { foods: IMealFood[] }) {
   }
 
   useEffect(() => {
-    async function getFood() {
-      const currentFood = foods.find(food => food.slug === mealFoodSlug)
-
-      if (!currentFood) closeModal()
-
-      setFood(currentFood)
-    }
-    getFood()
+    const currentFood = foods.find(food => food.slug === mealFoodSlug)
+    setFood(currentFood)
 
   },[mealFoodSlug, mealSlug])
 
